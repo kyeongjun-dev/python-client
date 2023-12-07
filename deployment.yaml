@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-client
+  labels:
+    app: python-client
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-client
+  template:
+    metadata:
+      labels:
+        app: python-client
+      annotations:
+        sidecar.istio.io/interceptionMode: TPROXY
+    spec:
+      nodeSelector:
+        role: role
+      containers:
+      - name: python
+        image: rudwns273/python-client:v1
