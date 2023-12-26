@@ -16,11 +16,9 @@ spec:
       annotations:
         sidecar.istio.io/interceptionMode: TPROXY
     spec:
-      nodeSelector:
-        role: role
       containers:
       - name: python
-        image: rudwns273/python-client:v1
+        image: rudwns273/python-client:latest
         env:
         - name: TZ
           value: "Asia/Seoul"
