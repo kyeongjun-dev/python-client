@@ -21,3 +21,6 @@ spec:
       containers:
       - name: python
         image: rudwns273/python-client:v1
+        env:
+        - name: TZ
+          value: "Asia/Seoul"
