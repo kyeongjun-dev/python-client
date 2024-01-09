@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backup-pod
+  labels:
+    name: backup-pod
+spec:
+  containers:
+  - name: backup-pod
+    image: rudwns273/python-client:latest
+    env:
+    - name: TZ
+      value: "Asia/Seoul"
+    - name: AWS_ACCESS_KEY_ID
+      value: 
+    - name: AWS_SECRET_ACCESS_KEY
+      value: 
+    - name: AWS_DEFAULT_REGION
+      value: ap-northeast-2
+    volumeMounts:
+    - mountPath: /data/db
+      name: <volume name>
+  nodeSelector:
+    topology.kubernetes.io/zone: ap-northeast-2a
+  volumes:
+  - name: <volume name>
+    persistentVolumeClaim:
+      claimName: <pvc name>
