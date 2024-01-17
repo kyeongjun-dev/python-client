@@ -25,4 +25,4 @@ jobs:
         context: .
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: python-client:$(date +%s)
+        tags: rudwns273/python-client:$(date +%s)
