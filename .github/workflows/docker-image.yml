@@ -19,10 +19,12 @@ jobs:
       uses: docker/setup-qemu-action@v3
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
+    - name: Set up Tag
+      run: echo "DOCKER_TAG=$(TZ=Asia/Seoul date +'%m-%d-%H-%M-%S')" >> $GITHUB_ENV
     - name: Build and push
       uses: docker/build-push-action@v5
       with:
         context: .
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: rudwns273/python-client:$(date +%s)
+        tags: rudwns273/python-client:${{ env.DOCKER_TAG }}
