@@ -27,4 +27,4 @@ jobs:
         context: .
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: rudwns273/python-client:${{ env.DOCKER_TAG }}
+        tags: rudwns273/python-client:${{ env.DOCKER_TAG }},rudwns273/python-client:latest
